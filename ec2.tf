@@ -1,8 +1,8 @@
 # key-pair
 
 resource "aws_key_pair" "deployer" {
-  key_name   = "deployer-key"
-  public_key = file("terra-key.pub")
+  key_name   = "<ssh-key-name>"
+  public_key = file("<pub-key file name>")
 }
 
 # vpc and security group
@@ -54,7 +54,7 @@ resource "aws_instance" "my_instance"{
 key_name =  aws_key_pair.deployer.key_name
 security_groups = [aws_security_group.my_security.name]
 instance_type = "t2.micro"
-ami = <ubuntu-id>
+ami = "<ubuntu-id>"  #Insert ami id
 
 #storage
 root_block_device{
@@ -66,5 +66,4 @@ tags = {
  name = "Tarraform practice instance"
 }
 }
-"
 
