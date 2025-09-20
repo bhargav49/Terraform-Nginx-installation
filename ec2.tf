@@ -2,7 +2,7 @@
 
 resource "aws_key_pair" "deployer" {
   key_name   = "ng-key"
-  public_key = file("ng-key.pub)
+  public_key = file("ng-key.pub")
 }
 
 # vpc and security group
