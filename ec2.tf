@@ -1,8 +1,8 @@
 # key-pair
 
 resource "aws_key_pair" "deployer" {
-  key_name   = "<ssh-key-name>"
-  public_key = file("<pub-key file name>")
+  key_name   = "ng-key"
+  public_key = file("ng-key.pub)
 }
 
 # vpc and security group
@@ -55,6 +55,7 @@ key_name =  aws_key_pair.deployer.key_name
 security_groups = [aws_security_group.my_security.name]
 instance_type = var.ec2_instance_type
 ami = var.ec2_ami_id  #Insert ami id
+user_data = file("nginx_install.sh")
 
 #storage
 root_block_device{
